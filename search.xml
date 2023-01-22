@@ -4,7 +4,84 @@
   
     
     <entry>
-      <title>python学习日记-字符串与常用数据结构</title>
+      <title>Linux学习日记</title>
+      <link href="/2023/01/21/Linux%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/"/>
+      <url>/2023/01/21/Linux%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<p>是这样的，上学期被同学问会不会Linux，于是反问自己这个问题，实在是不好意思说自己会。</p><p>本科上的课大概只是想快点把作业写完，去玩，去学别的，于是对Linux系统的命令还很茫然。</p><p>趁此机会，恶补一下知识好了。</p><p>（来源：蓝桥云课–Linux基础）</p><hr><h1 id="记在前面"><a href="#记在前面" class="headerlink" title="记在前面"></a>记在前面</h1><p>有几个技巧需要记住：</p><ol><li><p>活用重要快捷键：</p><p><code>tab</code>键：使用<code>tab</code>键可以进行命令、目录和参数的补全</p><p><code>ctrl+c</code>：强行终止当前程序，回到可控状态</p><p><code>ctrl+d</code>：退出用户或退出终端</p></li><li><p>通配符：</p><p>通配符<code>*</code>用来匹配0或多个字符，<code>？</code>用来匹配任意一个字符。</p><p>如下，可从一大堆文件中匹配出txt文件。</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /home/shiyanlou</span><br><span class="line">touch fgh.txt agf.txt</span><br><span class="line">ls *.txt</span><br></pre></td></tr></table></figure><p>另外，在创建文件时若想一次性创建多个文件，可直接如下操作：</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">touch love_&#123;1..10&#125;_shiyanlou.txt</span><br></pre></td></tr></table></figure></li><li><p>使用<code>man</code>命令，可以获得谋克命令的说明和使用方法。</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">man 1 ls</span><br></pre></td></tr></table></figure><p>1代表了一般命令区段，这样可以少显示一些。</p><p>若知道命令的作用，只需要获得某个参数的具体作用，就使用<code>--help</code>。</p></li></ol><h1 id="一些命令总结："><a href="#一些命令总结：" class="headerlink" title="一些命令总结："></a>一些命令总结：</h1><h2 id="Linux命令：对文件的基本操作"><a href="#Linux命令：对文件的基本操作" class="headerlink" title="Linux命令：对文件的基本操作"></a>Linux命令：对文件的基本操作</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">对文件的基本操作</span></span><br><span class="line">cd ~ # 回到home目录</span><br><span class="line">touch test # touch命令用于创建空白文件</span><br><span class="line">mkdir mydir # mkdir创建空目录</span><br><span class="line">mkdir -p father/son/grandson # -p 创建多级目录</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cp test /father/son/grandson # 使用cp命令复制一个文件到指定目录</span><br><span class="line">cp -r father family # 使用cp -r复制目录</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm test # rm命令删除文件</span><br><span class="line">touch test</span><br><span class="line">chmod 444 test # 给test赋予只读权限</span><br><span class="line">rm -f test # 删除只读文件时，需要-f命令强制删除</span><br><span class="line">rm -r family # 删除目录时，需要-r强制删除</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">移动文件命令 <span class="built_in">mv</span> 源目录 目的目录</span></span><br><span class="line">cd ~</span><br><span class="line">mkdir Documents</span><br><span class="line">touch file1</span><br><span class="line">mv file1 Documents</span><br><span class="line">cd Documents</span><br><span class="line">mv file1 myfile # mv命令还可以对文件重命名</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看文件</span></span><br><span class="line">cp /etc/passwd passwd</span><br><span class="line">cat passwd # cat正序显示文件</span><br><span class="line">cat -n passwd # 显示行号</span><br><span class="line">cat /etc/group | sort</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cat</span> 用于读取指定文件内容并打印到终端输出，| <span class="built_in">sort</span>表示将读取的文本进行字典排序再输出。</span></span><br><span class="line">cat /etc/group | grep -E &quot;shiyanlou&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">利用grep -E 指定字符串过滤出结果</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">阅读文件</span></span><br><span class="line">more passwd # 回车显示一行，空格显示一屏幕</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 菜鸟养成 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>python学习日记--面向对象编程</title>
+      <link href="/2023/01/21/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+      <url>/2023/01/21/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 定义类，创建并使用对象</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="comment"># __init__方法用于创建对象时进行初始化</span></span><br><span class="line">    <span class="comment"># 通过这个方法为学生对象绑定name和age两个属性</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name, age</span>):</span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">study</span>(<span class="params">self, course_name</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;%s正在学习%s.&#x27;</span> % (self.name, course_name))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">watch_movie</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">int</span>(self.age) &lt; <span class="number">18</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;%s只能观看《熊出没》.&#x27;</span> % self.name)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;%s正在观看爱情电影.&#x27;</span> % self.name)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    stu1 = Student(<span class="string">&#x27;漩涡鸣人&#x27;</span>,<span class="number">13</span>)</span><br><span class="line">    stu1.study(<span class="string">&#x27;影分身之术&#x27;</span>)</span><br><span class="line">    stu1.watch_movie()</span><br><span class="line">    stu2 = Student(<span class="string">&#x27;旗木卡卡西&#x27;</span>, <span class="string">&#x27;27&#x27;</span>)</span><br><span class="line">    stu2.study(<span class="string">&#x27;神威&#x27;</span>)</span><br><span class="line">    stu2.watch_movie()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 测试访问可见性</span></span><br><span class="line"><span class="comment"># 如果希望属性和方法是私有的，命名时用两个下划线作为开头</span></span><br><span class="line"><span class="comment"># 但是，利用更换名字的规则仍然可以对私密属性方法进行访问</span></span><br><span class="line"><span class="comment"># 实际开发中，不建议设置私有属性，会导致子类无法访问</span></span><br><span class="line"><span class="comment"># 通常用单下划线开头，表示属性是受保护的（仅仅是表示，暗示）</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, foo</span>):</span><br><span class="line">        self.foo = __foo</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__bar</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(self.__foo)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;__bar&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    test = Test(<span class="string">&#x27;hello&#x27;</span>)</span><br><span class="line">    test.__bar() <span class="comment">#报错</span></span><br><span class="line">    <span class="built_in">print</span>(test.__foo) <span class="comment"># 报错</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 菜鸟养成 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>文本纠错整理</title>
+      <link href="/2023/01/20/%E6%96%87%E6%9C%AC%E7%BA%A0%E9%94%99%E6%95%B4%E7%90%86/"/>
+      <url>/2023/01/20/%E6%96%87%E6%9C%AC%E7%BA%A0%E9%94%99%E6%95%B4%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><h2 id="NLP技术发展及相关概念"><a href="#NLP技术发展及相关概念" class="headerlink" title="NLP技术发展及相关概念"></a>NLP技术发展及相关概念</h2><p>基于规则和传统的机器学习方法不再赘述，本节从深度学习开始讲起。</p><p>不过要先提一嘴传统机器学习与深度学习的差别之一：端到端。</p><h3 id="概念1：端到端"><a href="#概念1：端到端" class="headerlink" title="概念1：端到端"></a>概念1：端到端</h3><p>传统机器学习流程由多个步骤组成， 每个步骤是一个独立的任务，其结果的好坏会影响到下一步骤，从而影响整个训练的结果，这是非端到端的。</p><p>深度学习模型在训练过程中，从输入端到输出端会得到一个预测结果和一个与真实结果相比的误差，这个误差会在模型中的每一层传递（反向传播），每一层的表示都会根据这个误差来做调整，直到模型收敛或达到预期的效果才结束，这是端到端的。</p><p>两者相比，端到端的学习省去了在每一个独立学习任务执行之前所做的数据标注，为样本做标注的代价是昂贵的、易出错的，也是深度学习的显著特点之一。端到端可让深度学习的过程简化为：喂给模型数据，模型训练至收敛，模型输出我们想要的结果（<strong>这个过程中深度学习模型就像黑箱</strong>）。</p><h3 id="概念2：RNN，CNN，Transformer"><a href="#概念2：RNN，CNN，Transformer" class="headerlink" title="概念2：RNN，CNN，Transformer"></a>概念2：RNN，CNN，Transformer</h3><p>深度学习是一种基于特征学习的机器学习方法，把原始数据转变成更抽象的特征表示，采用了更加复杂的神经网络，达到对数据更深的理解。</p><p>由此引出深度学习的三大特征提取器：RNN循环神经网络，CNN卷积神经网络，Transformer。</p><p>这三者的具体原理细节可见： <a href="https://www.cnblogs.com/sandwichnlp/p/11612596.html">三大特征提取器（RNN&#x2F;CNN&#x2F;Transformer） - 西多士NLP - 博客园 (cnblogs.com)</a> </p><p>RNN局限性在于并行性和全局性差，CNN在nlp领域并不十分适合，目前要数Transformer风头正盛。</p><p>此处粘贴上文中对于Transformer的小结：在语义特征提取能力，并行计算能力，长距离特征捕获能力及任务综合特征抽取能力都显著强于RNN和CNN。</p><h3 id="概念3：Encoder-Decoder框架"><a href="#概念3：Encoder-Decoder框架" class="headerlink" title="概念3：Encoder-Decoder框架"></a>概念3：Encoder-Decoder框架</h3><p>如果是深度学习模型就像黑箱，那么Encoder-Decoder框架就是黑箱中的两个部分，一部分负责编码，一部分负责解码。</p><p>在不同的NLP任务中，两个框架都是由多个单独的特征提取器组成（如CNN或LSTM）。</p><p>将向量通过Encoder框架，得到一个矩阵或向量作为输入序列的编码。在Decoder中，则根据任务目的，对得到的特征进行解码，得到我们想要的输出结果。</p><p>所以针对一个任务，在框架中堆叠的特征提取器至关重要。而所谓的Transformer结构，就是由多个Transformer块堆叠而成的Encoder-Decoder框架。</p><h3 id="概念4：Seq2Seq模型"><a href="#概念4：Seq2Seq模型" class="headerlink" title="概念4：Seq2Seq模型"></a>概念4：Seq2Seq模型</h3><p>提出这个概念是为了针对输出结果长度不确定的任务。</p><p>Seq2Seq其实就是Encoder-Decoder结构的网络，它的输入和输出都是一个序列。</p><p>在Encoder中，序列被转换成一个固定长度的向量，然后通过Decoder将该向量转换成我们想要的序列输出来。 </p><h3 id="概念5：非自回归模型和自回归模型"><a href="#概念5：非自回归模型和自回归模型" class="headerlink" title="概念5：非自回归模型和自回归模型"></a>概念5：非自回归模型和自回归模型</h3><p>目前主流的神经机器翻译模型为自回归模型（AR），每一步的译文单词的生成都依赖于之前的翻译结果，但是模型只能逐词生成译文，翻译速度较慢。</p><p>非自回归(NAR)模型并行生成序列的所有标记，与自回归模型相比，生成速度更快，但代价是准确性较低。 </p><p>总结：</p><p>非自回归的提出是为了降低自回归模型的时延，只是非自回归和半非自回归的依赖关系学习和生成难度更大，生成质量也更弱，但是在一些输入输出较为对其的任务（如翻译）上可以提供不错的生成效果。</p><p>此处存一个链接，日后可能会用到： <a href="https://mp.weixin.qq.com/s/pe2E69Gpw0nT9sSHvtBGSg">自回归与非自回归模型不可兼得？预训练模型BANG全都要！ (qq.com)</a> </p><h1 id="模型综述"><a href="#模型综述" class="headerlink" title="模型综述"></a>模型综述</h1><p> <a href="https://www.cnblogs.com/sandwichnlp/p/11947627.html">预训练语言模型整理（ELMo&#x2F;GPT&#x2F;BERT…） - 西多士NLP - 博客园 (cnblogs.com)</a> </p><p><a href="https://blog.nghuyong.top/2021/05/26/NLP/text-corrector/">https://blog.nghuyong.top/2021/05/26/NLP/text-corrector/</a></p><p> <a href="https://blog.csdn.net/BGoodHabit/article/details/114589007">(7条消息) 中文纠错（Chinese Spelling Correct）最新技术方案总结_BGoodHabit的博客-CSDN博客_中文纠错</a> </p><p> <a href="https://zhuanlan.zhihu.com/p/545510251">自然语言处理任务系列（二）——文本纠错 - 知乎 (zhihu.com)</a> </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 文本纠错 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 文本纠错 </tag>
+            
+            <tag> NLP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>python学习日记--字符串与常用数据结构</title>
       <link href="/2023/01/20/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/"/>
       <url>/2023/01/20/python%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
       
