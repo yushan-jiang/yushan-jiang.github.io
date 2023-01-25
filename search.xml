@@ -11,6 +11,20 @@
         <content type="html"><![CDATA[<p>（来源：Primer C++第五版）</p><p>此篇用于整理一些C++的基础碎片知识。</p><p>好好学习，不然找不到工作 orz 。</p><hr><h2 id="2-3-1-引用"><a href="#2-3-1-引用" class="headerlink" title="2.3.1 引用"></a>2.3.1 引用</h2><blockquote><p>引用即别名</p></blockquote><p>通过将声明符写作<code>&amp;d</code>的形式来定义引用类型。</p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> ival = <span class="number">1024</span>;</span><br><span class="line"><span class="type">int</span> &amp;refVal = ival; <span class="comment">// refVal指向ival（是ival的另一个名字）</span></span><br></pre></td></tr></table></figure><p>注：</p><p><strong>引用必须被初始化</strong>：引用一经初始化，将与对象一直绑定在一起，无法更改。</p><p><strong>引用并非对象</strong>：它只是别名。对其所有操作都是在与其绑定的对象上进行的。</p><p><strong>不能定义引用的引用</strong>：因为引用的初始值必须是一个对象，而引用不是对象。</p><h2 id="2-3-2-指针"><a href="#2-3-2-指针" class="headerlink" title="2.3.2 指针"></a>2.3.2 指针</h2><blockquote><p>与引用同为复合类型，都实现了对其他对象的间接访问。</p></blockquote><p>与引用不同之处在于：无需在定义时赋值，指针本身是对象。</p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">double</span> dval;</span><br><span class="line"><span class="type">double</span> *pd = &amp;dval; <span class="comment">// pd初始值为double型对象dval的地址</span></span><br><span class="line"><span class="type">double</span> *pd2 = pd; <span class="comment">// pd2初始值为指向double型对象的指针</span></span><br></pre></td></tr></table></figure><p><code>&amp;dval</code>表示取对象的地址而非引用，因为引用不是对象，没有地址。</p><p>若指针已指向一个对象，可使用解引用符号<code>*</code>来访问它或对其赋值。</p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> ival = <span class="number">42</span>;</span><br><span class="line"><span class="type">int</span> *p = &amp;ival;</span><br><span class="line">cout &lt;&lt; *p &lt;&lt; endl; <span class="comment">// *p得到p所指对象，输出42</span></span><br><span class="line">*p = <span class="number">0</span>; <span class="comment">// 对p所指对象复制，ival=0</span></span><br><span class="line">*q = <span class="literal">nullptr</span>; <span class="comment">// 定义空指针，可初始化为nullptr或0</span></span><br></pre></td></tr></table></figure><p><code>void*</code>是一种特殊的指针类型，可以存放任意类型对象的地址。</p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> obj = <span class="number">3.14</span>, *pd = &amp;obj;</span><br><span class="line"><span class="type">void</span> *pv = &amp;obj;</span><br><span class="line">pv = pd;</span><br></pre></td></tr></table></figure><p><strong>指向指针的引用：</strong></p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> i = <span class="number">42</span>;</span><br><span class="line"><span class="type">int</span> *p;</span><br><span class="line"><span class="type">int</span> *&amp;r = p; <span class="comment">//r是对指针p的引用</span></span><br><span class="line"></span><br><span class="line">r = &amp;i; <span class="comment">//r为p的别名，其实就是让p指向i</span></span><br><span class="line">*r = <span class="number">0</span>; <span class="comment">//解引用r得到i，将i值改为0</span></span><br></pre></td></tr></table></figure><p>如何辨别r的定义，找到与r最近的符号，<code>&amp;</code>就是引用，<code>*</code>就是指针。</p>]]></content>
       
       
+      <categories>
+          
+          <category> 菜鸟养成 </category>
+          
+          <category> 求职准备 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+        </tags>
       
     </entry>
     
