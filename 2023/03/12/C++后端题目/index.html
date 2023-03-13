@@ -1,0 +1,256 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>C++后端题目 | Shika's Blog</title><meta name="author" content="Shika"><meta name="copyright" content="Shika"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="指针和引用的区别    指针是对象，引用是别名。  初始化、拷贝、删除、大小。  对（指向&#x2F;引用）对象操作。     C++中内存分配情况    栈区：编译器自动创建回收，存放函数参数、局部变量。 堆区：程序员自行new malloc delete free，空间较大。 全局区（静态区）：分初始化和未初始化区，存放静态变量和全局变量。 常量区：放常量。 代码区：放二进制代码。    堆">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++后端题目">
+<meta property="og:url" content="https://yushan-jiang.github.io/2023/03/12/C++%E5%90%8E%E7%AB%AF%E9%A2%98%E7%9B%AE/index.html">
+<meta property="og:site_name" content="Shika&#39;s Blog">
+<meta property="og:description" content="指针和引用的区别    指针是对象，引用是别名。  初始化、拷贝、删除、大小。  对（指向&#x2F;引用）对象操作。     C++中内存分配情况    栈区：编译器自动创建回收，存放函数参数、局部变量。 堆区：程序员自行new malloc delete free，空间较大。 全局区（静态区）：分初始化和未初始化区，存放静态变量和全局变量。 常量区：放常量。 代码区：放二进制代码。    堆">
+<meta property="og:locale">
+<meta property="og:image" content="https://i0.hippopx.com/photos/458/225/316/fox-tree-stump-sleeping-preview.jpg">
+<meta property="article:published_time" content="2023-03-12T11:25:45.000Z">
+<meta property="article:modified_time" content="2023-03-13T01:44:23.491Z">
+<meta property="article:author" content="Shika">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i0.hippopx.com/photos/458/225/316/fox-tree-stump-sleeping-preview.jpg"><link rel="shortcut icon" href="/img/cake.png"><link rel="canonical" href="https://yushan-jiang.github.io/2023/03/12/C++%E5%90%8E%E7%AB%AF%E9%A2%98%E7%9B%AE/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C++后端题目',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-03-13 09:44:23'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/portrait.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i0.hippopx.com/photos/458/225/316/fox-tree-stump-sleeping-preview.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Shika's Blog"><span class="site-name">Shika's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C++后端题目</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-12T11:25:45.000Z" title="发表于 2023-03-12 19:25:45">2023-03-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-13T01:44:23.491Z" title="更新于 2023-03-13 09:44:23">2023-03-13</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C++后端题目"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ol>
+<li>指针和引用的区别</li>
+</ol>
+<blockquote>
+<ul>
+<li><p>指针是对象，引用是别名。</p>
+</li>
+<li><p>初始化、拷贝、删除、大小。</p>
+</li>
+<li><p>对（指向&#x2F;引用）对象操作。</p>
+</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>C++中内存分配情况</li>
+</ol>
+<blockquote>
+<ul>
+<li>栈区：编译器自动创建回收，存放函数参数、局部变量。</li>
+<li>堆区：程序员自行new malloc delete free，空间较大。</li>
+<li>全局区（静态区）：分初始化和未初始化区，存放静态变量和全局变量。</li>
+<li>常量区：放常量。</li>
+<li>代码区：放二进制代码。</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>堆和栈的区别</li>
+</ol>
+<blockquote>
+<ul>
+<li>内存分配：一个编译器负责，一个程序员负责。（堆创建的空间不回收，可能会造成内存泄漏问题）</li>
+<li>大小限制：栈的地址是从高到低扩展，栈顶地址与栈的大小确定，并且内存连续；堆的地址从低到高，因为是内存用链表来存储，所以是不连续的内存。</li>
+<li>存放内容：堆的头部放堆的大小，剩下的内容由程序员安排；栈在函数调用时，函数调用语句的下一条可执行语句先入栈，然后是函数的参数（从右往左入栈，保证出栈时第一个参数先出），函数的局部变量。（下一条，参数，局部变量）</li>
+</ul>
+</blockquote>
+<ol start="4">
+<li>函数传参几种方式</li>
+</ol>
+<blockquote>
+<ul>
+<li>值传递：将实参的值拷贝给形参。对形参的操作无法影响到函数外，也就是实参。</li>
+<li>指针传递：将实参的地址拷贝给形参，对形参的操作就是对实参地址的操作，这种操作是可以影响到函数外的，也就是可以更改实参的值。</li>
+<li>引用传递：形参是实参的引用，对形参操作，等同于对引用对象也就是对实参操作。</li>
+</ul>
+</blockquote>
+<ol start="5">
+<li>new&#x2F;malloc delete&#x2F;free差别</li>
+</ol>
+<blockquote>
+<ul>
+<li>new和delete是C++中操作符，malloc和free是C中的函数。</li>
+<li>new和delete做了两件事：分配（释放）内存，调用类的构造函数（析构函数）。</li>
+<li>malloc和free仅仅是分配和释放内存。</li>
+</ul>
+</blockquote>
+<ol start="6">
+<li>volatile和extern关键字</li>
+</ol>
+<blockquote>
+<ul>
+<li>volatile：告诉编译器定义的变量随时可能改变，让编译器不要对这个变量进行任何的优化，每次需要读取这个变量时，直接从内存中读取，从而实现对这个地址的稳定访问。</li>
+<li>extern：放在全局变量或函数的声明前，用来说明“函数&#x2F;变量是在别的文件中进行定义，在此处进行引用”。（不用include是因为extern能够加快程序编译，节省时间）（extern c用来声明C++中的C函数）。</li>
+</ul>
+</blockquote>
+<ol start="7">
+<li>static关键字：控制变量存储方式和可见性</li>
+</ol>
+<blockquote>
+<ul>
+<li>修饰全局变量：修改全局变量可见性。其通常是整个工程可见（其他文件中添加extern即可），添加static让其变为仅该文件可见。</li>
+<li>修饰局部变量：延长局部变量生命周期。该局部变量不再存储在栈中，而是静态区。e.g.：一个函数中对局部变量初始化后，再次调用跳过初始化指令，该局部变量的值是上次退出函数时局部变量的值。</li>
+<li>修饰函数：和全局变量相同，让其变为仅该文件可见。</li>
+<li>修饰类：<ul>
+<li>修饰类的成员：类的静态成员属于类，不属于任何一个对象。类和所有对象都可以访问，实现数据共享。类内声明，类外定义。</li>
+<li>修饰类的成员函数：只能访问类的静态成员。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ol start="8">
+<li>const关键字</li>
+</ol>
+<blockquote>
+<ul>
+<li>修饰基本数据类型：const为常量限定符，修饰基本数据类型，以告诉编译器该变量是不可修改的。</li>
+<li>修饰指针：<strong>指针常量与常量指针。</strong><ul>
+<li>指针指向的是常量，如<code>const int *p = &amp;a</code>。不可通过指针修改指向对象的值，但是可以修改指针的指向对象。</li>
+<li>指针本身为常量，如<code>int *const p = &amp;a</code>。可以通过指针修改指向对象的值，但是指针不可以指向其他对象。</li>
+</ul>
+</li>
+<li>修饰引用</li>
+<li>修饰函数：<ul>
+<li>修饰函数参数：在函数体中不能对参数进行修改和<strong>输出</strong>。</li>
+</ul>
+</li>
+<li>修饰类的对象：</li>
+<li>修饰类的成员函数：</li>
+</ul>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://yushan-jiang.github.io">Shika</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://yushan-jiang.github.io/2023/03/12/C++%E5%90%8E%E7%AB%AF%E9%A2%98%E7%9B%AE/">https://yushan-jiang.github.io/2023/03/12/C++后端题目/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://yushan-jiang.github.io" target="_blank">Shika's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i0.hippopx.com/photos/458/225/316/fox-tree-stump-sleeping-preview.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/02/25/AI%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E6%95%B4%E7%90%86/" title="AI论文精读整理"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i0.hippopx.com/photos/715/393/270/rabbit-hare-animal-wildlife-preview.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">AI论文精读整理</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/portrait.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Shika</div><div class="author-info__description">你若决定灿烂，山无遮，海无拦</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yushan-jiang"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://blog.csdn.net/jjsd__gulugulu" target="_blank" title="CSDN"><i class="fab fa-pagelines"></i></a><a class="social-icon" href="https://github.com/yushan-jiang" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:jiangys0929@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/03/12/C++%E5%90%8E%E7%AB%AF%E9%A2%98%E7%9B%AE/" title="C++后端题目"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i0.hippopx.com/photos/458/225/316/fox-tree-stump-sleeping-preview.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++后端题目"/></a><div class="content"><a class="title" href="/2023/03/12/C++%E5%90%8E%E7%AB%AF%E9%A2%98%E7%9B%AE/" title="C++后端题目">C++后端题目</a><time datetime="2023-03-12T11:25:45.000Z" title="发表于 2023-03-12 19:25:45">2023-03-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/25/AI%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E6%95%B4%E7%90%86/" title="AI论文精读整理"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i0.hippopx.com/photos/715/393/270/rabbit-hare-animal-wildlife-preview.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI论文精读整理"/></a><div class="content"><a class="title" href="/2023/02/25/AI%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E6%95%B4%E7%90%86/" title="AI论文精读整理">AI论文精读整理</a><time datetime="2023-02-25T01:09:15.000Z" title="发表于 2023-02-25 09:09:15">2023-02-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/24/leetcode-%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" title="leetcode-每日一题（一）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i0.hippopx.com/photos/483/394/510/cat-sweet-kitty-animals-preview.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="leetcode-每日一题（一）"/></a><div class="content"><a class="title" href="/2023/02/24/leetcode-%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/" title="leetcode-每日一题（一）">leetcode-每日一题（一）</a><time datetime="2023-02-24T13:33:09.000Z" title="发表于 2023-02-24 21:33:09">2023-02-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/23/STL%E6%95%B4%E7%90%86/" title="STL整理"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i0.hippopx.com/photos/483/394/510/cat-sweet-kitty-animals-preview.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="STL整理"/></a><div class="content"><a class="title" href="/2023/02/23/STL%E6%95%B4%E7%90%86/" title="STL整理">STL整理</a><time datetime="2023-02-23T07:10:25.000Z" title="发表于 2023-02-23 15:10:25">2023-02-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/23/%E8%AE%BA%E6%96%87%E5%8D%95%E8%AF%8D%E7%9B%98%E7%82%B9/" title="论文单词盘点"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i0.hippopx.com/photos/715/393/270/rabbit-hare-animal-wildlife-preview.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文单词盘点"/></a><div class="content"><a class="title" href="/2023/02/23/%E8%AE%BA%E6%96%87%E5%8D%95%E8%AF%8D%E7%9B%98%E7%82%B9/" title="论文单词盘点">论文单词盘点</a><time datetime="2023-02-23T02:03:53.000Z" title="发表于 2023-02-23 10:03:53">2023-02-23</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://i0.hippopx.com/photos/458/225/316/fox-tree-stump-sleeping-preview.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2023 By Shika</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
