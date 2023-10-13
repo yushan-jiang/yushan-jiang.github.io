@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>JavaGuide</title>
+      <link href="/2023/10/13/JavaGuide/"/>
+      <url>/2023/10/13/JavaGuide/</url>
+      
+        <content type="html"><![CDATA[<h1 id="基础概念与常识"><a href="#基础概念与常识" class="headerlink" title="基础概念与常识"></a>基础概念与常识</h1><h2 id="Java语言的特点"><a href="#Java语言的特点" class="headerlink" title="Java语言的特点"></a>Java语言的特点</h2><ol><li><p>面向对象</p></li><li><p>支持网络编程并且很方便</p><blockquote><p>网络编程：编写运行在多个设备的程序，这些设备都通过网络连接起来。</p></blockquote></li><li><p>支持多线程</p></li></ol><h1 id="JVM-amp-JDK-amp-JRE"><a href="#JVM-amp-JDK-amp-JRE" class="headerlink" title="JVM &amp; JDK &amp; JRE"></a>JVM &amp; JDK &amp; JRE</h1><p>JVM（Java虚拟机）：是运行Java字节码的虚拟机，针对不同系统有特定的实现，目的在于使用相同的字节码，给出相同的结果，从而实现“一次编译，随处可以运行”。</p><p>JDK（Java Development Kit）：字面意思上就是开发工具包，包括JRE，编译器（javac）和工具，能够创建和编译Java程序。是程序员开发的环境。</p><p>JRE：Java运行时的环境，是运行编译好的Java程序所需的所有内容的集和。</p><h3 id="字节码"><a href="#字节码" class="headerlink" title="字节码"></a>字节码</h3><p>在Java中，JVM可以理解的代码就叫做字节码（.class文件），它只面向虚拟机。</p><h1 id="Java变量类型"><a href="#Java变量类型" class="headerlink" title="Java变量类型"></a>Java变量类型</h1><p>Java语言支持的变量类型有：局部变量、成员变量、静态变量、参数变量</p><p>局部变量：定义在方法、构造方法或代码块中的变量，使用前必须声明，不能被访问修饰符修饰。</p><blockquote><ol><li>声明在方法、构造方法和代码块中，随方法、构造方法和代码块运行时被创建，运行结束后销毁。</li><li>不用访问修饰符修饰，因为作用域就限制在方法、构造方法和代码块中。只在声明它的方法、构造方法和代码块中可见，不能被其他方法或代码块访问。</li><li>局部变量在栈上分配的，没有默认值，声明后必须初始化才能使用。</li></ol></blockquote><p>成员变量：定义在类中、方法外的变量，作用域为整个类，可以被类中任何方法、构造方法、代码块访问。可以被访问修饰符修饰。</p><blockquote><ol><li>成员变量具有默认值，也可以在构造方法中指定。</li></ol></blockquote><p>静态变量：定义在类中、方法外的变量，使用static关键词修饰，作用域为整个类，可以被类中任何方法、构造方法、代码块访问。在程序运行期间无论创建多少个对象，在内存中只有一个副本，静态变量可被访问修饰符修饰。</p><blockquote><ol><li>也叫类变量，指在类中被定义的变量，被一个类所共享而不与实例相关。无论是否有对象实例化、有几个对象，内存中的静态变量只有一份。</li><li>静态变量在类加载时创建，在整个程序运行期间都存在。</li><li>与常量差别。常量被final关键字修饰，一旦赋值就不能在程序中再更改，静态变量的值可以改变。因此常量存储固定值，静态变量存储可变数据。</li><li>线程安全性：多个线程同时访问一个包含静态变量的类时，需要考虑进程安全性。</li></ol></blockquote><p>参数变量：方法定义时声明的变量，作为调用该方法时传递给方法的值。</p><blockquote><p>参数变量传递值的方式有以下两种：</p><ol><li>值传递：基本数据类型采用该方法传递参数变量的值。传递的实质上是参数的值的副本，在方法中对参数变量进行更改，只会修改副本的值，不会影响原始值。</li><li>引用传递：对象类型采用该方法传递参数变量的值。传递的是参数的引用（即内存地址），在方法中改变参数的值时会修改原始值的内容。</li></ol></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 从0开始 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>论文碎片collection</title>
       <link href="/2023/04/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
       <url>/2023/04/02/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</url>
